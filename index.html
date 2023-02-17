@@ -1,11 +1,170 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>My Page</title>
-  </head>
-  <body>
-    <canvas id="myCanvas"></canvas>
-    <script src="script.js"></script>
-  </body>
+<head>
+	<title>My Personal Webpage</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			/* background-image: url("https://i.imgur.com/qVlHe5I.jpg"); */
+			/* background-size: cover; */
+			/* background-position: center; */
+			/* color: #fff; */
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 1.2em;
+			line-height: 1.5;
+		}
+		canvas {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100vh;
+			z-index: -1;
+		}
+		.container {
+			max-width: 98%;
+			margin: 0 auto;
+			padding: 20px;
+			text-align: center;
+			position: relative;
+			z-index: 1;
+		}
+		h1 {
+			font-size: 3em;
+			margin-bottom: 0px;
+            /* text-transform: lowercase; */
+			font-variant: small-caps;
+            display: inline-block;
+		}
+		h2 {
+			font-size: 2em;
+			margin-bottom: 0px;
+		}
+        nav {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px; /* Change this value as needed */
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        nav a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a.active {
+            font-weight: bold;
+            color: #fff;
+            background-color: #000;
+        }
+		nav a:hover {
+			background-color: rgba(255, 255, 255, 0.2);
+		}
+		section {
+			margin: 40px 0;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+        	/* existing styles here */
+
+        .animated-title {
+            overflow: hidden;
+            display: inline-block;
+            animation: animate 10s linear infinite;
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.8);
+            -webkit-text-fill-color: transparent;
+        }
+        
+        @keyframes animate {
+            0% {
+                transform: translateX(30px);
+            }
+            25% {
+                transform: translateX(20px);
+            }
+            50% {
+                transform: translateX(30px);
+            }
+            75% {
+                transform: translateX(20px);
+            }
+            100% {
+                transform: translateX(30px);
+            }
+        }
+	</style>
+</head>
+<body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+	<script src="smoke.js"></script>
+    <script>
+        // Get the navigation links
+        const navLinks = document.querySelectorAll('nav a');
+      
+        // Loop through the links
+        navLinks.forEach(link => {
+          // Add a click event listener to each link
+          link.addEventListener('click', function() {
+            // Remove the active class from all links
+            navLinks.forEach(link => {
+              link.classList.remove('active');
+            });
+            // Add the active class to the clicked link
+            this.classList.add('active');
+          });
+        });
+    </script>
+	<canvas></canvas>
+	<div class="container">
+		<header>
+			<h1 class="animated-title">Aritra</h1>
+            <h1>Aich</h1>
+			<nav>
+				<a href="#about">ABOUT</a>
+				<!-- <a href="#skills">Skills</a> -->
+				<a href="#projects">PROJECTS</a>
+				<a href="#contact">ART</a>
+			</nav>
+		</header>
+		<main>
+			<section id="about">
+				<h2>About</h2>
+				<p>Here you can write a few sentences about yourself, your interests and your background.</p>
+			</section>
+			<section id="art">
+				<h2>Art</h2>
+				<ul>
+					<li>Web Development</li>
+					<li>Graphic Design</li>
+					<li>Content Writing</li>
+					<li>Marketing</li>
+					<li>Social Media Management</li>
+				</ul>
+			</section>
+			<section id="projects">
+				<h2>Projects</h2>
+				<p>Here you can showcase some of your best projects with a brief description and links to them.</p>
+			</section>
+			<section id="contact">
+				<h2>Contact Me</h2>
+				<!-- <p>You can add a contact form, email address, phone number, or links to your social media profiles here.</p> -->
+	        </section>
+        </main>
+</body>
 </html>
