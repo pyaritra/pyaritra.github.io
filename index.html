@@ -3,6 +3,10 @@
 <head>
 	<title>My Personal Webpage</title>
 	<style>
+		@font-face {
+			font-family: 'Montserrat';
+			src: url('fonts/Montserrat-Regular.ttf') format('truetype');
+		}
 		body {
 			margin: 0;
 			padding: 0;
@@ -10,7 +14,8 @@
 			/* background-size: cover; */
 			/* background-position: center; */
 			/* color: #fff; */
-			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			/* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+			font-family: 'Montserrat', sans-serif;
 			font-size: 1.2em;
 			line-height: 1.5;
 		}
@@ -26,8 +31,8 @@
 		.container {
 			max-width: 98%;
 			margin: 0 auto;
-			padding: 20px;
-			text-align: center;
+			padding: 120px 20px 20px 220px; /* adjust padding-top to match the height of the navigation bar */
+			text-align: center; /* add text-align center */
 			position: relative;
 			z-index: 1;
 		}
@@ -43,7 +48,7 @@
 			margin-bottom: 0px;
 		}
         nav {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 200px; /* Change this value as needed */
@@ -74,7 +79,10 @@
 			background-color: rgba(255, 255, 255, 0.2);
 		}
 		section {
-			margin: 40px 0;
+			height: 100vh;
+			padding: 50px;
+			box-sizing: border-box;
+			overflow-y: scroll;
 		}
 		ul {
 			list-style: none;
@@ -110,6 +118,11 @@
         }
 	</style>
 </head>
+
+<!-- ========================================================================= -->
+<!-- 								BODY										 -->
+<!-- ========================================================================= -->
+
 <body>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 	<script src="smoke.js"></script>
@@ -133,38 +146,51 @@
 	<canvas></canvas>
 	<div class="container">
 		<header>
-			<h1 class="animated-title">Aritra</h1>
-            <h1>Aich</h1>
+			<!-- <h1 class="animated-title">Aritra</h1> -->
+            <h1>Aritra Aich</h1>
 			<nav>
 				<a href="#about">ABOUT</a>
 				<!-- <a href="#skills">Skills</a> -->
 				<a href="#projects">PROJECTS</a>
-				<a href="#contact">ART</a>
+				<a href="#art">ART</a>
+				<a href="#contact">CONTACT</a>
 			</nav>
 		</header>
 		<main>
-			<section id="about">
+			<section id="about" class="selected">
 				<h2>About</h2>
-<!-- 				<p>Here you can write a few sentences about yourself, your interests and your background.</p> -->
-			</section>
-			<section id="art">
-				<h2>Art</h2>
-				<ul>
-					<li>Scribble Art</li>
-					<li>Graphic Design</li>
-					<li>Digital Art</li>
-					<li>Storyboards</li>
-<!-- 					<li>Social Media Management</li> -->
-				</ul>
+				<p>Here you can write a few sentences about yourself, your interests and your background.</p>
 			</section>
 			<section id="projects">
 				<h2>Projects</h2>
-<!-- 				<p>Here you can showcase some of your best projects with a brief description and links to them.</p> -->
+				<ul>
+					<li>Web Development</li>
+					<li>Graphic Design</li>
+					<li>Content Writing</li>
+					<li>Marketing</li>
+					<li>Social Media Management</li>
+				</ul>
 			</section>
+			<section id="art">
+				<h2>Art</h2>
+				<p>To showcase some of my best artworks with a brief description and links to them.</p>
+				</section>
 			<section id="contact">
 				<h2>Contact Me</h2>
 				<!-- <p>You can add a contact form, email address, phone number, or links to your social media profiles here.</p> -->
 	        </section>
         </main>
+		<script src="https://cdn.jsdelivr.net/npm/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"></script>
+		<script>
+		// Smooth scroll behavior
+		document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault();
+				document.querySelector(this.getAttribute('href')).scrollIntoView({
+					behavior: 'smooth'
+				});
+			});
+		});
+		</script>
 </body>
 </html>
