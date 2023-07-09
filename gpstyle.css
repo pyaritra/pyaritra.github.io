@@ -220,12 +220,12 @@ body {
     }
   }
   
-  section {
+/*   section {
     height: 100vh;
     box-sizing: content-box;
     overflow-y: scroll;
   }
-  
+   */
   ul {
     list-style: none;
     padding: 0;
