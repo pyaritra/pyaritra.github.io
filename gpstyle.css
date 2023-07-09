@@ -63,7 +63,7 @@ body {
     background-image: url("images/genart.jpg"), url("images/genart.jpg"); /* Add multiple background images */
     /* background-repeat: no-repeat; */
     background-size: cover;
-    background-blend-mode: difference; /* Set the blend mode to multiply */
+/*     background-blend-mode: difference; /* Set the blend mode to multiply */ */
   }
   
   canvas {
