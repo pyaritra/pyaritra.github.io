@@ -24,37 +24,72 @@
     </nav>
 
     <!-- =============== CONTENT =============== -->
-    <main id="about" class="hero left-align">
+    <main id="about" class="hero section">
       <h1 class="smallcaps">Astrophysics + Technology</h1>
       <p>Exploring the cosmos through code, data&nbsp;& imagery.</p>
     </main>
 
-    <section id="projects" class="projects-grid left-align">
-      <!-- Project cards -->
-      <article class="card">
-        <h2>Galactic Simulation</h2>
-        <p>Real-time N-body sim built in WebGL.</p>
-      </article>
-      <article class="card">
-        <h2>Dark Matter Visualizer</h2>
-        <p>Interactive VR experience mapping gravitational lensing data.</p>
-      </article>
-      <!-- Add more cards as needed -->
+    <section id="projects" class="section left-align">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <!-- Project cards -->
+        <article class="card">
+          <h3>Galactic Simulation</h3>
+          <p>Real-time N-body sim built in WebGL.</p>
+        </article>
+        <article class="card">
+          <h3>Dark Matter Visualizer</h3>
+          <p>Interactive VR experience mapping gravitational lensing data.</p>
+        </article>
+        <!-- Add more cards as needed -->
+      </div>
     </section>
 
-    <section id="cv" class="placeholder left-align">
+    <section id="cv" class="placeholder section left-align">
       <h2>Curriculum Vitae</h2>
       <p>Printable PDF & academic timeline coming soon.</p>
     </section>
 
-    <section id="code" class="placeholder left-align">
+    <section id="code" class="placeholder section left-align">
       <h2>Open‑Source Code</h2>
       <p>Links to GitHub repositories & live demos.</p>
     </section>
 
-    <section id="contact" class="placeholder left-align">
+    <section id="contact" class="placeholder section left-align">
       <h2>Contact</h2>
       <p>Email & social handles.</p>
     </section>
+
+    <!-- =============== SCROLL‑SPY SCRIPT =============== -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll(".section");
+        const navLinks = document.querySelectorAll(".side-index a");
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                navLinks.forEach((link) => {
+                  link.classList.toggle(
+                    "active",
+                    link.getAttribute("href").slice(1) === entry.target.id
+                  );
+                });
+                // highlight corresponding section title
+                document
+                  .querySelectorAll(".highlight")
+                  .forEach((el) => el.classList.remove("highlight"));
+                const heading = entry.target.querySelector("h1, h2");
+                if (heading) heading.classList.add("highlight");
+              }
+            });
+          },
+          { threshold: 0.6 }
+        );
+
+        sections.forEach((sec) => observer.observe(sec));
+      });
+    </script>
   </body>
 </html>
