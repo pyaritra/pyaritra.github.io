@@ -7,26 +7,54 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body class="dark">
+    <!-- =============== TOP NAV =============== -->
     <header class="nav dark-nav">
-      <a href="art.html" class="nav-link right">Art</a>
+      <a href="art.html" class="nav-link right peel">Art</a>
     </header>
 
-    <main class="hero">
+    <!-- =============== SIDE INDEX =============== -->
+    <nav class="side-index">
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#code">Code</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- =============== CONTENT =============== -->
+    <main id="about" class="hero">
       <h1>Astrophysics + Technology</h1>
       <p>Exploring the cosmos through code, data&nbsp;& imagery.</p>
     </main>
 
-    <section class="projects-grid">
+    <section id="projects" class="projects-grid">
       <!-- Project cards -->
       <article class="card">
         <h2>Galactic Simulation</h2>
-        <p>Real‑time N‑body sim built in WebGL.</p>
+        <p>Real-time N-body sim built in WebGL.</p>
       </article>
       <article class="card">
         <h2>Dark Matter Visualizer</h2>
         <p>Interactive VR experience mapping gravitational lensing data.</p>
       </article>
       <!-- Add more cards as needed -->
+    </section>
+
+    <section id="cv" class="placeholder">
+      <h2>Curriculum Vitae</h2>
+      <p>Printable PDF & academic timeline coming soon.</p>
+    </section>
+
+    <section id="code" class="placeholder">
+      <h2>Open‑Source Code</h2>
+      <p>Links to GitHub repositories & live demos.</p>
+    </section>
+
+    <section id="contact" class="placeholder">
+      <h2>Contact</h2>
+      <p>Email & social handles.</p>
     </section>
   </body>
 </html>
