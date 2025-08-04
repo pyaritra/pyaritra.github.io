@@ -64,33 +64,41 @@ body.light {
 }
 
 /* Peeling triangle for the "Art" link */
+.peel {
+  color: #000; /* black text for contrast */
+  background: #fff;
+  padding: 0.35rem 0.75rem;
+}
 .peel::after {
   content: "";
   position: absolute;
-  top: -0.55rem;
-  right: -0.55rem;
+  top: -1.65rem; /* 3x original (0.55 * 3) */
+  right: -1.65rem;
   width: 0;
   height: 0;
-  border-top: 1.3rem solid #fff;
-  border-left: 1.3rem solid transparent;
+  border-top: 3.9rem solid #fff; /* 3x original 1.3rem */
+  border-left: 3.9rem solid transparent;
   transition: transform 0.3s ease;
 }
 body.dark .peel::after {
-  border-top-color: #fff; /* white triangle on dark bg */
+  border-top-color: #fff;
 }
 .peel:hover::after {
-  transform: translate(4px, -4px) rotate(3deg);
+  transform: translate(6px, -6px) rotate(3deg);
 }
 
 /* Hero */
 .hero {
-  text-align: center;
+  text-align: left; /* flush left */
   margin-top: 8vh;
-  padding: var(--spacing);
+  padding: var(--spacing) calc(var(--spacing) * 1.5);
 }
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
+}
+.smallcaps {
+  font-variant: small-caps;
 }
 .hero p {
   font-size: 1.1rem;
@@ -136,24 +144,27 @@ body.light .card {
 .side-index {
   position: fixed;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 0.5rem 0.75rem;
+  top: 0;
+  height: 100vh; /* full height */
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(6px);
-  border-radius: var(--corner-radius) 0 0 var(--corner-radius);
   border-left: 1px solid rgba(255, 255, 255, 0.15);
 }
 .side-index ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
+  padding: 0 1rem;
 }
 .side-index a {
   color: inherit;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 1.2rem; /* larger font */
   opacity: 0.85;
   transition: opacity 0.2s ease;
 }
@@ -161,12 +172,16 @@ body.light .card {
   opacity: 1;
 }
 
+/* Left align placeholder sections */
+.left-align {
+  text-align: left;
+}
+
 /* Placeholder sections */
 .placeholder {
   padding: calc(var(--spacing) * 2) calc(var(--spacing) * 1.5);
   max-width: 800px;
   margin: 0 auto;
-  text-align: center;
   opacity: 0.9;
 }
 .placeholder h2 {
