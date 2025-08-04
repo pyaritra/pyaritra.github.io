@@ -72,11 +72,11 @@ body.light {
 .peel::after {
   content: "";
   position: absolute;
-  top: -1.65rem; /* 3x original (0.55 * 3) */
+  top: -16.5rem; /* 3x original (0.55 * 3) */
   right: -1.65rem;
   width: 0;
   height: 0;
-  border-top: 3.9rem solid #fff; /* 3x original 1.3rem */
+  border-top: 39rem solid #fff; /* 3x original 1.3rem */
   border-left: 3.9rem solid transparent;
   transition: transform 0.3s ease;
 }
