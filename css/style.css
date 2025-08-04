@@ -11,6 +11,9 @@
   margin: 0;
   padding: 0;
 }
+html {
+  scroll-behavior: smooth; /* smooth scrolling between sections */
+}
 body {
   font-family: "Inter", system-ui, sans-serif;
   line-height: 1.6;
@@ -63,28 +66,35 @@ body.light {
   margin-right: auto;
 }
 
-/* Peeling triangle for the "Art" link */
-.peel {
-  color: #000; /* black text for contrast */
+/* Animated square for the "Art" link */
+.square {
+  color: #000;
   background: #fff;
-  padding: 0.35rem 0.75rem;
+  padding: 0.45rem 1rem;
+  border: 3px solid #fff;
+  overflow: hidden;
 }
-.peel::after {
+.square::before {
   content: "";
   position: absolute;
-  top: -16.5rem; /* 3x original (0.55 * 3) */
-  right: -1.65rem;
-  width: 0;
-  height: 0;
-  border-top: 39rem solid #fff; /* 3x original 1.3rem */
-  border-left: 3.9rem solid transparent;
-  transition: transform 0.3s ease;
+  top: -3px;
+  left: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  border: 3px solid #fff;
+  animation: squarePulse 4s infinite ease-in-out;
+  pointer-events: none;
 }
-body.dark .peel::after {
-  border-top-color: #fff;
-}
-.peel:hover::after {
-  transform: translate(6px, -6px) rotate(3deg);
+@keyframes squarePulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07) rotate(2deg);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Hero */
@@ -96,6 +106,7 @@ body.dark .peel::after {
 .hero h1 {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
+  font-variant: small-caps;
 }
 .smallcaps {
   font-variant: small-caps;
@@ -113,7 +124,10 @@ body.dark .peel::after {
   padding: calc(var(--spacing) * 2) calc(var(--spacing) * 1.5);
   width: 100%;
   max-width: 1200px;
-  margin-inline: auto;
+  margin-left: calc(var(--spacing) * 1.5);
+  margin-right: 0;
+  justify-items: start; /* left‑align grid items */
+  text-align: left;
 }
 .card {
   padding: var(--spacing);
@@ -146,7 +160,7 @@ body.light .card {
   right: 0;
   top: 0;
   height: 100vh; /* full height */
-  width: 180px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -158,13 +172,13 @@ body.light .card {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 0 1rem;
+  gap: 1.2rem;
+  padding: 0 1.25rem;
 }
 .side-index a {
   color: inherit;
   text-decoration: none;
-  font-size: 1.2rem; /* larger font */
+  font-size: 1.3rem; /* larger font */
   opacity: 0.85;
   transition: opacity 0.2s ease;
 }
@@ -172,16 +186,18 @@ body.light .card {
   opacity: 1;
 }
 
-/* Left align placeholder sections */
+/* Left align helper */
 .left-align {
   text-align: left;
+  margin-left: calc(var(--spacing) * 1.5);
+  margin-right: calc(var(--spacing) * 1.5);
 }
 
 /* Placeholder sections */
 .placeholder {
-  padding: calc(var(--spacing) * 2) calc(var(--spacing) * 1.5);
+  padding: calc(var(--spacing) * 2) 0;
   max-width: 800px;
-  margin: 0 auto;
+  margin-left: calc(var(--spacing) * 1.5);
   opacity: 0.9;
 }
 .placeholder h2 {
@@ -192,5 +208,9 @@ body.light .card {
 @media (max-width: 800px) {
   .side-index {
     display: none; /* hide index on small screens */
+  }
+  .placeholder, .left-align {
+    margin-left: calc(var(--spacing) * 0.75);
+    margin-right: calc(var(--spacing) * 0.75);
   }
 }
